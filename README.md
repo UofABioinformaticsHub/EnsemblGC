@@ -1,8 +1,31 @@
 # Ensembl_GC
 
-<p>This repository holds precalculated GC content for select species from multiple ensembl releases.<br>
-All RDS files contain the GC content and length for the transcripts as defined at time of release, as GRanges objects.<br>
-Links are provided below.</p>
+**This site is best viewed and used using the github pages site:**
+https://uofabioinformaticshub.github.io/Ensembl_GC/
+
+This repository holds precalculated GC content for select species from multiple ensembl releases.
+All RDS files contain the GC content and length for the transcripts as defined at time of release, as GRanges objects. Links are provided below.
+
+To load these directly into your R session you can execute something similar to the following lines of code.
+This example will import gc content information for the *Homo sapiens* transcriptome based on Ensembl release 98.
+Simply copy the url for your desired transcriptome in place of the human one, and this should work. 
+
+```
+library(GenomicRanges)
+con <- url("https://uofabioinformaticshub.github.io/Ensembl_GC/Release98/Homo_sapiens.GRCh38.98.rds")
+gc <- readRDS(con)
+```
+
+Alternatively if you prefer a more 'tidy' approach.
+
+```
+library(GenomicRanges)
+library(magrittr)
+gc <- url("https://uofabioinformaticshub.github.io/Ensembl_GC/Release98/Homo_sapiens.GRCh38.98.rds") %>% 
+    readRDS(con)
+```
+
+The script used to generate all objects can be found in the respective folders of each release on the main repository https://github.com/UofABioinformaticsHub/Ensembl_GC
 
 ## Ensembl 98
 Last generated 15 November, 2019.
