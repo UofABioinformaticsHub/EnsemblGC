@@ -22,19 +22,23 @@ Alternatively if you prefer a more 'tidy' approach.
 library(GenomicRanges)
 library(magrittr)
 gc <- url("https://uofabioinformaticshub.github.io/Ensembl_GC/Release98/Homo_sapiens.GRCh38.98.rds") %>% 
-    readRDS(con)
+    readRDS()
 ```
 
 The script used to generate all objects can be found in the respective folders of each release on the main repository https://github.com/UofABioinformaticsHub/Ensembl_GC
 
 ## Ensembl 98
-Last generated 15 November, 2019.
+Last generated 16 November, 2019.
 - [Bos taurus](Release98/Bos_taurus.ARS-UCD1.2.98.rds)
+- [Caenorhabditis elegans](Release98/Caenorhabditis_elegans.WBcel235.98.rds)
 - [Danio rerio](Release98/Danio_rerio.GRCz11.98.rds)
+- [Drosophila melanogaster](Release98/Drosophila_melanogaster.BDGP6.22.98.rds)
 - [Gallus gallus](Release98/Gallus_gallus.GRCg6a.98.rds)
 - [Homo sapiens](Release98/Homo_sapiens.GRCh38.98.rds)
 - [Mus musculus](Release98/Mus_musculus.GRCm38.98.rds)
+- [Ovis aries](Release98/Ovis_aries.Oar_v3.1.98.rds)
 - [Rattus norvegicus](Release98/Rattus_norvegicus.Rnor_6.0.98.rds)
+- [Saccharomyces cerevisiae](Release98/Saccharomyces_cerevisiae.R64-1-1.98)
 
 ## Ensembl 97
 Last generated 15 November, 2019.
