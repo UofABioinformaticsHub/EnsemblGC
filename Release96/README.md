@@ -5,9 +5,9 @@ All RDS files contain the GC content and length for the transcripts as defined a
 Links are provided below.</p>
 
 <p>Last generated 15 November, 2019.</p>
-- [Bos taurus](https://github.com/UofABioinformaticsHub/Ensembl_GC/blob/master/Release96/Bos_taurus.ARS-UCD1.2.96.rds)
-- [Danio rerio](https://github.com/UofABioinformaticsHub/Ensembl_GC/blob/master/Release96/Danio_rerio.GRCz11.96.rds)
-- [Gallus gallus](https://github.com/UofABioinformaticsHub/Ensembl_GC/blob/master/Release96/Gallus_gallus.GRCg6a.96.rds)
-- [Homo sapiens](https://github.com/UofABioinformaticsHub/Ensembl_GC/blob/master/Release96/Homo_sapiens.GRCh38.96.rds)
-- [Mus musculus](https://github.com/UofABioinformaticsHub/Ensembl_GC/blob/master/Release96/Mus_musculus.GRCm38.96.rds)
-- [Rattus norvegicus](https://github.com/UofABioinformaticsHub/Ensembl_GC/blob/master/Release96/Rattus_norvegicus.Rnor_6.0.96.rds)
+- [Bos taurus](Bos_taurus.ARS-UCD1.2.96.rds)
+- [Danio rerio](Danio_rerio.GRCz11.96.rds)
+- [Gallus gallus](Gallus_gallus.GRCg6a.96.rds)
+- [Homo sapiens](Homo_sapiens.GRCh38.96.rds)
+- [Mus musculus](Mus_musculus.GRCm38.96.rds)
+- [Rattus norvegicus](Rattus_norvegicus.Rnor_6.0.96.rds)
