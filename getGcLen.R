@@ -32,12 +32,12 @@
 #' ah <- subset(AnnotationHub(), rdataclass == "EnsDb")
 #' gc <- getGCLen("Notechis_scutatus", 98, ah)
 #' 
-#' @import RCurl
 #' @import stringr
 #' @import dplyr
 #' @import tidyr
 #' @import magrittr
 #' @import tibble
+#' @import RCurl
 #' @import Biostrings
 #' @import GenomicRanges
 getGCLen <- function(sp, rls, ah, seq_type = c("cdna", "cds"), dir = tempdir()) {
@@ -45,13 +45,17 @@ getGCLen <- function(sp, rls, ah, seq_type = c("cdna", "cds"), dir = tempdir()) 
   ## As this function exists outside of a package, the above imports are not 
   # going to be performed. Put them here and remove later if moving to a pkg
   reqPkg <- c(
-    "RCurl", "stringr", "dplyr", "tidyr", "magrittr", "tibble", "Biostrings",
+    "stringr", "dplyr", "tidyr", "magrittr", "tibble", "RCurl", "Biostrings",
     "GenomicRanges"
   )
   notLoaded <- setdiff(reqPkg, loadedNamespaces())
   if (length(notLoaded)) {
-    notInstalled <- setdiff(notLoaded, rownames(installed.packages()))
-    if (length(notInstalled)) BiocManager::install(notInstalled)
+    instPkg <- rownames(installed.packages())
+    notInstalled <- setdiff(notLoaded, instPkg)
+    if (length(notInstalled)) {
+      if (!"BiocManager" %in% instPkg) install.packages("BiocManager")
+      BiocManager::install(notInstalled)
+    }
     sapply(notLoaded, library, character.only = TRUE)
   }
 
@@ -89,6 +93,7 @@ getGCLen <- function(sp, rls, ah, seq_type = c("cdna", "cds"), dir = tempdir()) 
   saveRDS(gr, paste0(sp, ".", bld, ".", rls, ".rds"))
   ## Silently return TRUE
   invisible(TRUE)
+  
 }
 
 #' @description For use on local fa files
