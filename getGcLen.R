@@ -40,7 +40,9 @@
 #' @import RCurl
 #' @import Biostrings
 #' @import GenomicRanges
-getGCLen <- function(sp, rls, ah, seq_type = c("cdna", "cds"), dir = tempdir()) {
+getGCLen <- function(
+  sp, rls, ah, seq_type = c("cdna", "cds"), dir = tempdir(), write_rds = TRUE
+) {
   
   ## As this function exists outside of a package, the above imports are not 
   # going to be performed. Put them here and remove later if moving to a pkg
@@ -90,9 +92,9 @@ getGCLen <- function(sp, rls, ah, seq_type = c("cdna", "cds"), dir = tempdir()) 
   tryCatch(download.file(url, localFa))
   
   gr <- .faToGC(localFa, ensDb)
-  saveRDS(gr, paste0(sp, ".", bld, ".", rls, ".rds"))
+  if (write_rds) saveRDS(gr, paste0(sp, ".", bld, ".", rls, ".rds"))
   ## Silently return the object
-  invisible(gr)
+  gr
   
 }
 
