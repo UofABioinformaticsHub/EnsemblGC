@@ -48,7 +48,7 @@ getGCLen <- function(sp, rls, ah, seq_type = c("cdna", "cds"), dir = tempdir()) 
     "stringr", "dplyr", "tidyr", "magrittr", "tibble", "RCurl", "Biostrings",
     "GenomicRanges"
   )
-  notLoaded <- setdiff(reqPkg, loadedNamespaces())
+  notLoaded <- setdiff(reqPkg, (.packages()))
   if (length(notLoaded)) {
     instPkg <- rownames(installed.packages())
     notInstalled <- setdiff(notLoaded, instPkg)
@@ -91,8 +91,8 @@ getGCLen <- function(sp, rls, ah, seq_type = c("cdna", "cds"), dir = tempdir()) 
   
   gr <- .faToGC(localFa, ensDb)
   saveRDS(gr, paste0(sp, ".", bld, ".", rls, ".rds"))
-  ## Silently return TRUE
-  invisible(TRUE)
+  ## Silently return the object
+  invisible(gr)
   
 }
 
