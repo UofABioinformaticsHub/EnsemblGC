@@ -1,10 +1,10 @@
 # Ensembl release 98
 
 This folder contains precalculated GC content for select species from ensembl release 98.
-All RDS files contain the GC content and length for the transcripts as defined at time of release, as GRanges objects.
+All RDS files contain the GC content and length for the transcripts as defined at time of release, as tibbles.
 Links are provided below.
 
-Last generated 16 November, 2019.
+Last generated 21 November, 2019.
 - [Bos taurus](Bos_taurus.ARS-UCD1.2.98.rds)
 - [Caenorhabditis elegans](Caenorhabditis_elegans.WBcel235.98.rds)
 - [Danio rerio](Danio_rerio.GRCz11.98.rds)

@@ -1,0 +1,2 @@
+load("/Users/lachlanbaer/Documents/Bioinformatics/Projects/Ensembl_GC/Release90/Gallus_gallus.Gallus_gallus-5.0.90.rds")
+load("/Users/lachlanbaer/Documents/Bioinformatics/Projects/Ensembl_GC/Release90/Ovis_aries.Oar_v3.1.90.rds")
