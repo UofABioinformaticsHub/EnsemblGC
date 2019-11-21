@@ -4,7 +4,7 @@ library(RCurl)
 library(here)
 
 ## Load the main function
-source(file.path(here::here(), "getGcLenTibble.R"))
+source(file.path(here::here(), "getGcLen.R"))
 
 ## Set the Ensembl release
 rls <- 98

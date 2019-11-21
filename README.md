@@ -4,7 +4,7 @@
 https://uofabioinformaticshub.github.io/Ensembl_GC/
 
 This repository holds precalculated GC content for select species from multiple ensembl releases.
-All RDS files contain the GC content and length for the transcripts as defined at time of release, as GRanges objects. Links are provided below.
+All RDS files contain the GC content and length for the transcripts as defined at time of release, as tibbles. Links are provided below.
 
 To load these directly into your R session you can execute something similar to the following lines of code.
 This example will import gc content information for the *Homo sapiens* transcriptome based on Ensembl release 98.

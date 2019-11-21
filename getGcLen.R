@@ -35,15 +35,15 @@
 #' @import tibble
 #' @import RCurl
 #' @import Biostrings
-getGCLen <- function(
-  sp, 
-  rls, 
-  bld, 
-  db = c("ensembl", "plants"), 
-  seq_type = c("cdna", "cds"), 
-  dir = tempdir(), 
-  write_rds = TRUE
-) {
+getGCLen <- function(sp, rls, bld, db = c("ensembl", "plants"), seq_type = c("cdna", "cds"), dir = tempdir(), write_rds = TRUE) {
+  
+  library(stringr)
+  library(dplyr)
+  library(tidyr)
+  library(magrittr)
+  library(tibble)
+  library(RCurl)
+  library(Biostrings)
   
   ## As this function exists outside of a package, the above imports are not 
   # going to be performed. Put them here and remove later if moving to a pkg
@@ -67,7 +67,6 @@ getGCLen <- function(
   if (is.na(as.integer(rls)))
     stop("Ensembl release not specified correctly")
   seq_type <- match.arg(seq_type)
-  bld <- match.arg(bld)
   db <- match.arg(db)
   stopifnot(dir.exists(dir))
   
