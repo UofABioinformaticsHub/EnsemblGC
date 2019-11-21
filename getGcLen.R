@@ -7,10 +7,9 @@
 #' An underscore should be used instead of a space between names. For example,
 #' sp = "Homo_sapiens".
 #' @param rls The Ensembl release as an integer or character, e.g. rls = "98" 
-#' @param ah An AnnotationHub object containing an EnsDb object associated
-#' with the requested species and release
-#' @param fa The core fasta file to be used. Defaults to 'cdna' but can also 
-#' take the value cds
+#' @param bld The genome build associated with the corresponding Ensembl 
+#' release, e.g. bld = "GRCh38"
+#' @param db The Ensembl database for the requested species.
 #' @param dir The location to download the file to. Defaults to tempdir()
 #' 
 #' @details 
@@ -19,18 +18,15 @@
 #' every transcript in the downloaded file.
 #' 
 #' @return  
-#' A GRanges object with seqinfo obtained from the associated `ensembldb` 
-#' object.
+#' A tibble with GC content and length information per transcript.
 #' 
 #' @author Lachlan Baer & Steve Pederson
 #' 
 #' @examples 
-#' library(AnnotationHub)
-#' library(GenomicRanges)
 #' library(tidyverse)
 #' library(RCurl)
-#' ah <- subset(AnnotationHub(), rdataclass == "EnsDb")
-#' gc <- getGCLen("Notechis_scutatus", 98, ah)
+#' library(Biostrings)
+#' gc <- getGCLen("Notechis_scutatus", 98, "TSX10Xv2-PRI")
 #' 
 #' @import stringr
 #' @import dplyr
@@ -39,16 +35,20 @@
 #' @import tibble
 #' @import RCurl
 #' @import Biostrings
-#' @import GenomicRanges
 getGCLen <- function(
-  sp, rls, ah, seq_type = c("cdna", "cds"), dir = tempdir(), write_rds = TRUE
+  sp, 
+  rls, 
+  bld, 
+  db = c("ensembl", "plants"), 
+  seq_type = c("cdna", "cds"), 
+  dir = tempdir(), 
+  write_rds = TRUE
 ) {
   
   ## As this function exists outside of a package, the above imports are not 
   # going to be performed. Put them here and remove later if moving to a pkg
   reqPkg <- c(
-    "stringr", "dplyr", "tidyr", "magrittr", "tibble", "RCurl", "Biostrings",
-    "GenomicRanges"
+    "stringr", "dplyr", "tidyr", "magrittr", "tibble", "RCurl", "Biostrings"
   )
   notLoaded <- setdiff(reqPkg, (.packages()))
   if (length(notLoaded)) {
@@ -60,50 +60,56 @@ getGCLen <- function(
     }
     sapply(notLoaded, library, character.only = TRUE)
   }
-
+  
   ## Check all arguments
   if (!all(.checkSpecies(sp))) 
     stop("Species must be specified as 'Genus_species'")
   if (is.na(as.integer(rls)))
     stop("Ensembl release not specified correctly")
   seq_type <- match.arg(seq_type)
+  bld <- match.arg(bld)
+  db <- match.arg(db)
   stopifnot(dir.exists(dir))
   
-  ## Check the AnnotationHub object
-  ah <- subset(
-    ah, 
-    species == str_replace(sp, "_", " ") & 
-      grepl(rls, description) & 
-      rdataclass == "EnsDb"
-  )
-  if (length(ah) == 0) stop("No relevant EnsDb object found in `ah`")
-  
-  ## Define the EnsDb object & get the genome build
-  ensDb <- ah[[1]]
-  bld <- unique(genome(ensDb))
-  
-  ## Define the file & url
+  ## Define the file
   fl <- paste(sp, bld, seq_type, "all.fa.gz", sep = ".")
-  rootUrl <- paste0("ftp://ftp.ensembl.org/pub/release-", rls, "/", "fasta")
+  ## Define the url. This is structured differently depending on database.
+  if (db == "ensembl") {
+    rootUrl <- paste0(
+      "ftp://ftp.ensembl.org/pub/release-", 
+      rls, 
+      "/", 
+      "fasta"
+    )
+  }
+  if (db == "plants") {
+    rootUrl <- paste0(
+      "ftp://ftp.ensemblgenomes.org/pub/release-", 
+      rls, 
+      "/",
+      "plants/",
+      "fasta"
+    )
+  }
   ## Now form the complete url & download
   url <- paste(rootUrl, str_to_lower(sp), seq_type, fl, sep = "/")
   stopifnot(url.exists(url))
   localFa <- file.path(dir, fl)
   tryCatch(download.file(url, localFa))
   
-  gr <- .faToGC(localFa, ensDb)
-  if (write_rds) saveRDS(gr, paste0(sp, ".", bld, ".", rls, ".rds"))
+  tbl <- .faToGC(localFa, bld)
+  if (write_rds) saveRDS(tbl, paste0(sp, ".", bld, ".", rls, ".rds"))
   ## Silently return the object
-  gr
+  tbl
   
 }
 
 #' @description For use on local fa files
 #' @param faFile Local Fasta File for processing
-#' @param ensDb EnsDb object which matches the fasta file
-.faToGC <- function(faFile, ensDb){
+#' @param bld The genome build associated with the correspondig Ensembl 
+#' release, e.g. bld = "GRCh38"
+.faToGC <- function(faFile, bld){
   
-  bld <- unique(genome(ensDb))
   ## Import as a DNAStringSet
   tr <- readDNAStringSet(faFile)
   ## Split the sequence headers into an 7 column matrix using the 
@@ -138,6 +144,12 @@ getGCLen <- function(
     sep = ":"
   ) 
   df <- dplyr::mutate(df, strand = ifelse(strand == 1, "+", "-"))
+  df <- tidyr::unite(
+    data = df,
+    col = location,
+    c("seqnames", "start", "end", "strand"),
+    sep = ":"
+  )
   
   ## Most species have ENS identifiers, but some don't
   ## If they do, they will have version numbers after transcript & gene ids
@@ -148,15 +160,9 @@ getGCLen <- function(
     df$gene_id <- str_remove(df$gene_id, "\\.[0-9]+$")
   }
   
-  ## Setup as a GRanges object then export as an RDS
-  df <- as.data.frame(df) 
-  rownames(df) <- df$seq_id
-  gr <- makeGRangesFromDataFrame(
-    df, 
-    seqinfo = seqinfo(ensDb),
-    keep.extra.columns = TRUE
-  )
-  gr
+  ## Setup as a tibble then export as an RDS
+  tbl <- as_tibble(df)
+  tbl
 }
 
 .checkSpecies <- function(x){

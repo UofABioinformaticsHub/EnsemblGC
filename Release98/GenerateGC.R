@@ -1,12 +1,10 @@
 library(tidyverse)
 library(Biostrings)
-library(AnnotationHub)
-library(GenomicRanges)
 library(RCurl)
 library(here)
 
 ## Load the main function
-source(file.path(here::here(), "getGcLen.R"))
+source(file.path(here::here(), "getGcLenTibble.R"))
 
 ## Set the Ensembl release
 rls <- 98
@@ -14,12 +12,9 @@ rls <- 98
 ## Set the working directory in a portable manner
 setwd(here::here(paste0("Release", rls)))
 
-## Define the Annotation Hub object to extract the EnsDb objects from
-ah <- subset(AnnotationHub(), rdataclass == "EnsDb")
-
 ## Define the species
 sp <- c(
-  Bs = "Bos_taurus", 
+  Bs = "Bos_taurus",
   Ce = "Caenorhabditis_elegans", 
   Dr = "Danio_rerio", 
   Dm = "Drosophila_melanogaster",
@@ -31,8 +26,39 @@ sp <- c(
   Sc = "Saccharomyces_cerevisiae"
 )
 
+bld <- c(
+  Bs = "ARS-UCD1.2",
+  Ce = "WBcel235", 
+  Dr = "GRCz11", 
+  Dm = "BDGP6.22",
+  Gg = "GRCg6a", 
+  Hs = "GRCh38", 
+  Mm = "GRCm38", 
+  Oa = "Oar_v3.1", 
+  Rn = "Rnor_6.0", 
+  Sc = "R64-1-1"
+)
+
+db <- c(
+  Bs = "ensembl",
+  Ce = "ensembl", 
+  Dr = "ensembl", 
+  Dm = "ensembl",
+  Gg = "ensembl", 
+  Hs = "ensembl", 
+  Mm = "ensembl", 
+  Oa = "ensembl", 
+  Rn = "ensembl", 
+  Sc = "ensembl"
+)
+
 ## Form a list of arguments
-spList <- lapply(sp, function(x){list(sp = x, rls = rls, ah = ah)})
+spList <- names(sp) %>%
+  lapply(
+    function(x){
+      list(sp = sp[[x]], rls = rls, bld = bld[[x]], db = db[[x]])
+    }
+  )
 
 ## Run everything
 lapply(spList, function(x){do.call(getGCLen, x)})
