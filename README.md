@@ -43,8 +43,8 @@ Last generated 21 November, 2019.
 ## EnsemblPlants 45
 Last generated 22 November, 2019.
 - [Arabidopsis thaliana](PlantsRealease45/Arabidopsis_thaliana.TAIR10.45.rds)
-- [Triticum aestivum](PlantsRealease45/Triticum_aestivum.IWGSC.45.rds)
 - [Hordeum vulgare](PlantsRealease45/Hordeum_vulgare.IBSC_v2.45.rds)
+- [Triticum aestivum](PlantsRealease45/Triticum_aestivum.IWGSC.45.rds)
 
 ## Ensembl 97
 Last generated 21 November, 2019.
@@ -62,8 +62,8 @@ Last generated 21 November, 2019.
 ## EnsemblPlants 44
 Last generated 22 November, 2019.
 - [Arabidopsis thaliana](PlantsRealease44/Arabidopsis_thaliana.TAIR10.44.rds)
-- [Triticum aestivum](PlantsRealease44/Triticum_aestivum.IWGSC.44.rds)
 - [Hordeum vulgare](PlantsRealease44/Hordeum_vulgare.IBSC_v2.44.rds)
+- [Triticum aestivum](PlantsRealease44/Triticum_aestivum.IWGSC.44.rds)
 
 ## Ensembl 96
 Last generated 21 November, 2019.
@@ -81,8 +81,8 @@ Last generated 21 November, 2019.
 ## EnsemblPlants 43
 Last generated 22 November, 2019.
 - [Arabidopsis thaliana](PlantsRealease43/Arabidopsis_thaliana.TAIR10.43.rds)
-- [Triticum aestivum](PlantsRealease43/Triticum_aestivum.IWGSC.43.rds)
 - [Hordeum vulgare](PlantsRealease43/Hordeum_vulgare.IBSC_v2.43.rds)
+- [Triticum aestivum](PlantsRealease43/Triticum_aestivum.IWGSC.43.rds)
 
 ## Ensembl 95
 Last generated 21 November, 2019.
@@ -100,8 +100,8 @@ Last generated 21 November, 2019.
 ## EnsemblPlants 42
 Last generated 22 November, 2019.
 - [Arabidopsis thaliana](PlantsRealease42/Arabidopsis_thaliana.TAIR10.42.rds)
-- [Triticum aestivum](PlantsRealease42/Triticum_aestivum.IWGSC.42.rds)
 - [Hordeum vulgare](PlantsRealease42/Hordeum_vulgare.IBSC_v2.42.rds)
+- [Triticum aestivum](PlantsRealease42/Triticum_aestivum.IWGSC.42.rds)
 
 ## Ensembl 94
 Last generated 21 November, 2019.
@@ -119,8 +119,8 @@ Last generated 21 November, 2019.
 ## EnsemblPlants 41
 Last generated 22 November, 2019.
 - [Arabidopsis thaliana](PlantsRealease41/Arabidopsis_thaliana.TAIR10.41.rds)
-- [Triticum aestivum](PlantsRealease41/Triticum_aestivum.IWGSC.41.rds)
 - [Hordeum vulgare](PlantsRealease41/Hordeum_vulgare.IBSC_v2.41.rds)
+- [Triticum aestivum](PlantsRealease41/Triticum_aestivum.IWGSC.41.rds)
 
 ## Ensembl 93
 Last generated 21 November, 2019.
@@ -138,8 +138,8 @@ Last generated 21 November, 2019.
 ## EnsemblPlants 40
 Last generated 22 November, 2019.
 - [Arabidopsis thaliana](PlantsRealease40/Arabidopsis_thaliana.TAIR10.40.rds)
-- [Triticum aestivum](PlantsRealease40/Triticum_aestivum.IWGSC.40.rds)
 - [Hordeum vulgare](PlantsRealease40/Hordeum_vulgare.Hv_IBSC_PGSB_v2.40.rds)
+- [Triticum aestivum](PlantsRealease40/Triticum_aestivum.IWGSC.40.rds)
 
 ## Ensembl 92
 Last generated 21 November, 2019.

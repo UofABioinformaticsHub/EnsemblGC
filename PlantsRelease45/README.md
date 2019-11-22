@@ -6,5 +6,5 @@ Links are provided below.
 
 Last generated 22 November, 2019.
 - [Arabidopsis thaliana](Arabidopsis_thaliana.TAIR10.45.rds)
-- [Triticum aestivum](Triticum_aestivum.IWGSC.45.rds)
 - [Hordeum vulgare](Hordeum_vulgare.IBSC_v2.45.rds)
+- [Triticum aestivum](Triticum_aestivum.IWGSC.45.rds)
