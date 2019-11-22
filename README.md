@@ -40,6 +40,12 @@ Last generated 21 November, 2019.
 - [Rattus norvegicus](Release98/Rattus_norvegicus.Rnor_6.0.98.rds)
 - [Saccharomyces cerevisiae](Release98/Saccharomyces_cerevisiae.R64-1-1.98.rds)
 
+## EnsemblPlants 45
+Last generated 22 November, 2019.
+- [Arabidopsis thaliana](PlantsRealease45/Arabidopsis_thaliana.TAIR10.45.rds)
+- [Triticum aestivum](PlantsRealease45/Triticum_aestivum.IWGSC.45.rds)
+- [Hordeum vulgare](PlantsRealease45/Hordeum_vulgare.IBSC_v2.45.rds)
+
 ## Ensembl 97
 Last generated 21 November, 2019.
 - [Bos taurus](Release97/Bos_taurus.ARS-UCD1.2.97.rds)
@@ -52,6 +58,12 @@ Last generated 21 November, 2019.
 - [Ovis aries](Release97/Ovis_aries.Oar_v3.1.97.rds)
 - [Rattus norvegicus](Release97/Rattus_norvegicus.Rnor_6.0.97.rds)
 - [Saccharomyces cerevisiae](Release97/Saccharomyces_cerevisiae.R64-1-1.97.rds)
+
+## EnsemblPlants 44
+Last generated 22 November, 2019.
+- [Arabidopsis thaliana](PlantsRealease44/Arabidopsis_thaliana.TAIR10.44.rds)
+- [Triticum aestivum](PlantsRealease44/Triticum_aestivum.IWGSC.44.rds)
+- [Hordeum vulgare](PlantsRealease44/Hordeum_vulgare.IBSC_v2.44.rds)
 
 ## Ensembl 96
 Last generated 21 November, 2019.
@@ -66,6 +78,12 @@ Last generated 21 November, 2019.
 - [Rattus norvegicus](Release96/Rattus_norvegicus.Rnor_6.0.96.rds)
 - [Saccharomyces cerevisiae](Release96/Saccharomyces_cerevisiae.R64-1-1.96.rds)
 
+## EnsemblPlants 43
+Last generated 22 November, 2019.
+- [Arabidopsis thaliana](PlantsRealease43/Arabidopsis_thaliana.TAIR10.43.rds)
+- [Triticum aestivum](PlantsRealease43/Triticum_aestivum.IWGSC.43.rds)
+- [Hordeum vulgare](PlantsRealease43/Hordeum_vulgare.IBSC_v2.43.rds)
+
 ## Ensembl 95
 Last generated 21 November, 2019.
 - [Bos taurus](Release95/Bos_taurus.ARS-UCD1.2.95.rds)
@@ -78,6 +96,12 @@ Last generated 21 November, 2019.
 - [Ovis aries](Release95/Ovis_aries.Oar_v3.1.95.rds)
 - [Rattus norvegicus](Release95/Rattus_norvegicus.Rnor_6.0.95.rds)
 - [Saccharomyces cerevisiae](Release95/Saccharomyces_cerevisiae.R64-1-1.95.rds)
+
+## EnsemblPlants 42
+Last generated 22 November, 2019.
+- [Arabidopsis thaliana](PlantsRealease42/Arabidopsis_thaliana.TAIR10.42.rds)
+- [Triticum aestivum](PlantsRealease42/Triticum_aestivum.IWGSC.42.rds)
+- [Hordeum vulgare](PlantsRealease42/Hordeum_vulgare.IBSC_v2.42.rds)
 
 ## Ensembl 94
 Last generated 21 November, 2019.
@@ -92,6 +116,12 @@ Last generated 21 November, 2019.
 - [Rattus norvegicus](Release94/Rattus_norvegicus.Rnor_6.0.94.rds)
 - [Saccharomyces cerevisiae](Release94/Saccharomyces_cerevisiae.R64-1-1.94.rds)
 
+## EnsemblPlants 41
+Last generated 22 November, 2019.
+- [Arabidopsis thaliana](PlantsRealease41/Arabidopsis_thaliana.TAIR10.41.rds)
+- [Triticum aestivum](PlantsRealease41/Triticum_aestivum.IWGSC.41.rds)
+- [Hordeum vulgare](PlantsRealease41/Hordeum_vulgare.IBSC_v2.41.rds)
+
 ## Ensembl 93
 Last generated 21 November, 2019.
 - [Bos taurus](Release93/Bos_taurus.UMD3.1.93.rds)
@@ -104,6 +134,12 @@ Last generated 21 November, 2019.
 - [Ovis aries](Release93/Ovis_aries.Oar_v3.1.93.rds)
 - [Rattus norvegicus](Release93/Rattus_norvegicus.Rnor_6.0.93.rds)
 - [Saccharomyces cerevisiae](Release93/Saccharomyces_cerevisiae.R64-1-1.93.rds)
+
+## EnsemblPlants 40
+Last generated 22 November, 2019.
+- [Arabidopsis thaliana](PlantsRealease40/Arabidopsis_thaliana.TAIR10.40.rds)
+- [Triticum aestivum](PlantsRealease40/Triticum_aestivum.IWGSC.40.rds)
+- [Hordeum vulgare](PlantsRealease40/Hordeum_vulgare.Hv_IBSC_PGSB_v2.40.rds)
 
 ## Ensembl 92
 Last generated 21 November, 2019.
